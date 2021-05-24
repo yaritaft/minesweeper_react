@@ -14,7 +14,7 @@ function App() {
       <header className="App-header">
         <BrowserRouter>
           <Switch>
-            <Route exact path={"/"}>
+            <Route exact path={"/minesweeper_react"}>
               <Login />
             </Route>
              <Route exact path={"/registry"}>
@@ -30,6 +30,7 @@ function App() {
                 <Minesweeper />
               </Route>
           </Switch>
+        </BrowserRouter>
           <br />
           <br />
           <br />
@@ -38,7 +39,6 @@ function App() {
           <br />
           <br />
           <Logout />
-        </BrowserRouter>
       </header>
     </div>
   );
