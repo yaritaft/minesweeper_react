@@ -1,23 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import "./App.css";
+import { Logout } from "./components/Logout";
+import { GameMenu } from "./pages/GameMenu";
+import { Login } from "./pages/Login";
+import { Minesweeper } from "./pages/Minesweeper";
+import { Registry } from "./pages/Registry";
+import { SavedGames } from "./pages/SavedGames";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <BrowserRouter>
+          <Switch>
+            <Route exact path={"/"}>
+              <Login />
+            </Route>
+             <Route exact path={"/registry"}>
+                <Registry />
+              </Route>
+             <Route exact path={"/menu"}>
+                <GameMenu />
+              </Route>
+              <Route exact path={"/saved-games"}>
+                <SavedGames />
+              </Route>
+              <Route exact path={"/minesweeper/:id"}>
+                <Minesweeper />
+              </Route>
+          </Switch>
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <Logout />
+        </BrowserRouter>
       </header>
     </div>
   );
