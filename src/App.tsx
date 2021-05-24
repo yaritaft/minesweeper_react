@@ -9,11 +9,10 @@ import { Registry } from "./pages/Registry";
 import { SavedGames } from "./pages/SavedGames";
 
 function App() {
-  console.log(process.env);
   return (
     <div className="App">
       <header className="App-header">
-        <BrowserRouter>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
           <Switch>
             <Route exact path={process.env.PUBLIC_URL }>
               <Login />
