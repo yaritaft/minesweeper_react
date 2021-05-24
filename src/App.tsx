@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { Switch, Route, BrowserRouter } from "react-router-dom";
 import "./App.css";
 import { Logout } from "./components/Logout";
 import { GameMenu } from "./pages/GameMenu";
@@ -9,27 +9,27 @@ import { Registry } from "./pages/Registry";
 import { SavedGames } from "./pages/SavedGames";
 
 function App() {
-  console.log(process.env)
+  console.log(process.env);
   return (
     <div className="App">
       <header className="App-header">
         <BrowserRouter>
           <Switch>
-            <Route exact path={process.env.PUBLIC_URL!}>
+            <Route exact path={"/"}>
               <Login />
             </Route>
-             <Route exact path={process.env.PUBLIC_URL! + "/registry"}>
-                <Registry />
-              </Route>
-             <Route exact path={process.env.PUBLIC_URL! + "/menu"}>
-                <GameMenu />
-              </Route>
-              <Route exact path={process.env.PUBLIC_URL! + "/saved-games"}>
-                <SavedGames />
-              </Route>
-              <Route exact path={process.env.PUBLIC_URL! + "/minesweeper/:id"}>
-                <Minesweeper />
-              </Route>
+            <Route exact path={process.env.PUBLIC_URL + "/registry"}>
+              <Registry />
+            </Route>
+            <Route exact path={process.env.PUBLIC_URL + "/menu"}>
+              <GameMenu />
+            </Route>
+            <Route exact path={process.env.PUBLIC_URL + "/saved-games"}>
+              <SavedGames />
+            </Route>
+            <Route exact path={process.env.PUBLIC_URL + "/minesweeper/:id"}>
+              <Minesweeper />
+            </Route>
           </Switch>
           <br />
           <br />
@@ -38,7 +38,7 @@ function App() {
           <br />
           <br />
           <br />
-          <Logout/>
+          <Logout />
         </BrowserRouter>
       </header>
     </div>

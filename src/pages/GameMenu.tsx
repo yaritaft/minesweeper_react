@@ -26,7 +26,7 @@ export function GameMenu(): JSX.Element {
     const handleNewGame = async ()=> {
         const response = await apiPost<NewGameResponse>("/api/games", gameInfo);
         if(response?.data?.gameId){
-            history.push(process.env.PUBLIC_URL! + `/minesweeper/${response.data.gameId}`);
+            history.push(`/minesweeper/${response.data.gameId}`);
         }
     }
 
@@ -51,7 +51,7 @@ export function GameMenu(): JSX.Element {
      </label><br/>
         <button type="button" onClick={handleNewGame}>New Game</button>
     <br/>
-      <a href={process.env.PUBLIC_URL! + "/saved-games"}>
+      <a href={process.env.PUBLIC_URL + "/saved-games"}>
         <button type="button">Load Game</button>
       </a>
     </div>
