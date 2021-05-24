@@ -10,7 +10,7 @@ export function Minesweeper(): JSX.Element {
 
   return (
     <div>
-        aaaaa: id {id}
+        aa.aaa: id {id}
     </div>
   );
 }
