@@ -15,7 +15,7 @@ function App() {
       <header className="App-header">
         <BrowserRouter>
           <Switch>
-            <Route exact path={"/"}>
+            <Route exact path={process.env.PUBLIC_URL }>
               <Login />
             </Route>
             <Route exact path={process.env.PUBLIC_URL + "/registry"}>
