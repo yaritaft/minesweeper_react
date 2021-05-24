@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { BackToMenuButton } from '../components/BackToMenuButton';
 import { apiGet } from '../services/requestService';
 
 
@@ -24,7 +25,9 @@ export function SavedGames(): JSX.Element {
 
     return (
     <div>
-        {games?.map((game, index) => <a href={`/minesweeper/${game.gameId}`}>{`SLOT ${index} - ${game.gameId}`}</a>)}
+        {games?.map((game, index) => <a href={process.env.PUBLIC_URL! + `/minesweeper/${game.gameId}`}>{`SLOT ${index} - ${game.gameId}`}</a>)}
+        < br/>
+        <BackToMenuButton />
     </div>
   );
 }

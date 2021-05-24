@@ -9,36 +9,37 @@ import { Registry } from "./pages/Registry";
 import { SavedGames } from "./pages/SavedGames";
 
 function App() {
+  console.log(process.env)
   return (
     <div className="App">
       <header className="App-header">
         <BrowserRouter>
           <Switch>
-            <Route exact path={"/minesweeper_react"}>
+            <Route exact path={process.env.PUBLIC_URL!}>
               <Login />
             </Route>
-             <Route exact path={"/registry"}>
+             <Route exact path={process.env.PUBLIC_URL! + "/registry"}>
                 <Registry />
               </Route>
-             <Route exact path={"/menu"}>
+             <Route exact path={process.env.PUBLIC_URL! + "/menu"}>
                 <GameMenu />
               </Route>
-              <Route exact path={"/saved-games"}>
+              <Route exact path={process.env.PUBLIC_URL! + "/saved-games"}>
                 <SavedGames />
               </Route>
-              <Route exact path={"/minesweeper/:id"}>
+              <Route exact path={process.env.PUBLIC_URL! + "/minesweeper/:id"}>
                 <Minesweeper />
               </Route>
           </Switch>
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <Logout/>
         </BrowserRouter>
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <Logout />
       </header>
     </div>
   );
