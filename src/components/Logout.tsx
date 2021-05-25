@@ -9,6 +9,6 @@ export function Logout(): JSX.Element {
   }
 
   return (
-    <button type="button" onClick={handleClick} >END SESSION</button>
+    <button type="button" onClick={handleClick} >Logout</button>
   );
 }

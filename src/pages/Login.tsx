@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import { ButtonTo } from "../components/BackToMenuButton";
 import { apiPost } from "../services/requestService";
 
 interface State {
@@ -63,9 +64,8 @@ export function Login(): JSX.Element {
         <button type="button" onClick={handleSubmit}>Log In</button>
 
       </form>
-      <a href={"/registry"}>
-        <button type="button">Sign Up</button>
-      </a>
+      <br/ >
+      <ButtonTo path="/registry" message="Sign Up" />
     </>
   );
 }

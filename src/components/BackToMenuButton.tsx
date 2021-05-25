@@ -1,14 +1,18 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 
-export function BackToMenuButton(): JSX.Element {
+interface Properties {
+  path: string;
+  message?: string;
+}
+
+export function ButtonTo(props: Properties): JSX.Element {
     const history = useHistory();
   function handleClick(): void {
-      localStorage.removeItem("authorization");
-      history.push("/menu");
+      history.push(props.path);
   }
 
   return (
-    <button type="button" onClick={handleClick} >GO BACK TO MENU</button>
+    <button type="button" onClick={handleClick} >{props.message ?? "Go Back"}</button>
   );
 }

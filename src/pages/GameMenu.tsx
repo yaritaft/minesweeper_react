@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import { ButtonTo } from "../components/BackToMenuButton";
 import { apiPost } from "../services/requestService";
 
 interface NewGameResponse {
@@ -51,9 +52,7 @@ export function GameMenu(): JSX.Element {
      </label><br/>
         <button type="button" onClick={handleNewGame}>New Game</button>
     <br/>
-      <a href={"/saved-games"}>
-        <button type="button">Load Game</button>
-      </a>
+      <ButtonTo path="/saved-games" message="Load Game" />
     </div>
   );
 }
