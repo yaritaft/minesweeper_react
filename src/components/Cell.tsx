@@ -1,5 +1,5 @@
 import React, { SetStateAction } from "react";
-import { Cell, CellState, ClickRequest, Game, GameResponse } from "../models/Game";
+import { CellState, ClickRequest, Game, GameResponse } from "../models/Game";
 import { apiPatch } from "../services/requestService";
 
 interface Properties {
@@ -18,7 +18,7 @@ export function CellComponent(props: Properties): JSX.Element {
       `/api/games/${props.id}/click`,
       clickRequest
     );
-    if (response.data.matrix) {
+    if (response.data) {
       props.setGame(response.data);
     }
   };

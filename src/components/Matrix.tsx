@@ -1,13 +1,8 @@
-import M from "minimatch";
-import React, { SetStateAction, useEffect, useState } from "react";
+import React, { SetStateAction } from "react";
 import {
-  Cell,
   CellState,
-  ClickRequest,
   Game,
-  GameResponse,
 } from "../models/Game";
-import { apiGet, apiPatch } from "../services/requestService";
 import { CellComponent } from "./Cell";
 
 interface Properties {
@@ -17,7 +12,7 @@ interface Properties {
   setGame: React.Dispatch<SetStateAction<Game | undefined>>;
 }
 
-export function MatrixComponent(props: Properties): JSX.Element {
+function MatrixComponentInternal(props: Properties): JSX.Element {
   const {game, setGame} = props;
   const generateCell = (game: Game): JSX.Element => (
     <>
@@ -53,3 +48,4 @@ export function MatrixComponent(props: Properties): JSX.Element {
     </div>
   );
 }
+export const MatrixComponent = React.memo(MatrixComponentInternal);

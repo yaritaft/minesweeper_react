@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { ButtonTo } from '../components/BackToMenuButton';
 import { MatrixComponent } from '../components/Matrix';
@@ -26,31 +26,33 @@ export function Minesweeper(): JSX.Element {
     history.push("/menu")
   }
 
-  const getGame = async (): Promise<Game | undefined> => {
-    const response = await apiGet<GameResponse>(`/api/games/${id}`);
-    if (response.status === 200) {
-      console.log(response.data);
-      return response.data;
-    }
-  };
-
-  const tempGetGame = async () => {
-    const response = await getGame();
-    if (response) {
-      if ([GameState.Lost, GameState.Won].includes(response?.state)){
-        alert(`You have ${response?.state}`)
-        history.push("/menu");
-      }else{
-        setGame(response);
+  useEffect(() => {
+    const getGame = async () => {
+      const response = await apiGet<GameResponse>(`/api/games/${id}`);
+      if (response.status===200 && response.data) {
+        const updatedGame = response.data;
+        if ([GameState.Lost, GameState.Won].includes(updatedGame.state)){
+          alert(`You have ${updatedGame?.state}`)
+          console.log(`You have ${updatedGame.state}`)
+          console.log(JSON.stringify(updatedGame))
+          history.push("/menu");
+        }
+        setGame(updatedGame);
       }
-    }
-  };
+    };
+    getGame();
+  }, [history, id]);
 
-  useCallback(tempGetGame, [tempGetGame])
   
   useEffect(() => {
-    tempGetGame();
-  }, [getGame, game]);
+        console.log(JSON.stringify(game))
+        if (game?.state && [GameState.Lost, GameState.Won].includes(game.state)){
+          alert(`You have ${game?.state}`)
+          console.log(`You have ${game.state}`)
+          console.log(JSON.stringify(game))
+          history.push("/menu");
+        }
+  }, [game, history]);
 
 
   return (
