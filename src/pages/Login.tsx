@@ -27,6 +27,9 @@ export function Login(): JSX.Element {
           localStorage.setItem('authorization', value.data.authorization);
           history.push("/menu")
       }
+      else {
+        alert("Wrong credentials.");
+      }
 
 }
 

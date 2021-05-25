@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { ButtonTo } from '../components/BackToMenuButton';
 import { MatrixComponent } from '../components/Matrix';
@@ -33,18 +33,22 @@ export function Minesweeper(): JSX.Element {
       return response.data;
     }
   };
-  
-  useEffect(() => {
-    const tempGetGame = async () => {
-      const response = await getGame();
-      if (response) {
-        if ([GameState.Lost, GameState.Won].includes(response?.state)){
-          alert(`Ỳou have ${response?.state}`)
-          history.push("/menu");
-        }
+
+  const tempGetGame = async () => {
+    const response = await getGame();
+    if (response) {
+      if ([GameState.Lost, GameState.Won].includes(response?.state)){
+        alert(`You have ${response?.state}`)
+        history.push("/menu");
+      }else{
         setGame(response);
       }
-    };
+    }
+  };
+
+  useCallback(tempGetGame, [tempGetGame])
+  
+  useEffect(() => {
     tempGetGame();
   }, [getGame, game]);
 
