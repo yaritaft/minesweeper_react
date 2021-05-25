@@ -47,7 +47,7 @@ export function Minesweeper(): JSX.Element {
   useEffect(() => {
         console.log(JSON.stringify(game))
         if (game?.state && [GameState.Lost, GameState.Won].includes(game.state)){
-          alert(`You have ${game?.state}`)
+          alert(`You have ${game?.state} and you have played ${game.secondsElapsed} seconds.`)
           console.log(`You have ${game.state}`)
           console.log(JSON.stringify(game))
           history.push("/menu");
