@@ -24,7 +24,7 @@ export function Login(): JSX.Element {
       const value = await apiPost<TokenResponse>("/api/user/login", {...loginInfo});
       if(value?.data?.authorization){
           localStorage.setItem('authorization', value.data.authorization);
-          history.push(process.env.PUBLIC_URL + "/menu")
+          history.push("/menu")
       }
 
 }
@@ -63,7 +63,7 @@ export function Login(): JSX.Element {
         <button type="button" onClick={handleSubmit}>Log In</button>
 
       </form>
-      <a href={process.env.PUBLIC_URL + "/registry"}>
+      <a href={"/registry"}>
         <button type="button">Sign Up</button>
       </a>
     </>

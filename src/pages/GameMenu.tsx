@@ -51,7 +51,7 @@ export function GameMenu(): JSX.Element {
      </label><br/>
         <button type="button" onClick={handleNewGame}>New Game</button>
     <br/>
-      <a href={process.env.PUBLIC_URL + "/saved-games"}>
+      <a href={"/saved-games"}>
         <button type="button">Load Game</button>
       </a>
     </div>

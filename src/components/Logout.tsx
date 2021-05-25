@@ -5,7 +5,7 @@ export function Logout(): JSX.Element {
     const history = useHistory();
   function handleClick(): void {
       localStorage.removeItem("authorization");
-      history.push(process.env.PUBLIC_URL);
+      history.push("/");
   }
 
   return (

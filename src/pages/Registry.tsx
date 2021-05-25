@@ -28,7 +28,7 @@ export function Registry(): JSX.Element {
       ...registryInfo,
     });
     if (response?.status===200) {
-        history.push(process.env.PUBLIC_URL!);
+        history.push("/");
     }
   }
 
@@ -85,7 +85,7 @@ export function Registry(): JSX.Element {
         <br />
         <button type="button" onClick={handleSubmit}>Register</button>
       </form>
-      <a href={process.env.PUBLIC_URL + "/"}>
+      <a href={"/"}>
         <button type="button">Go back</button>
       </a>
     </>

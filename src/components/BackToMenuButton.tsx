@@ -5,7 +5,7 @@ export function BackToMenuButton(): JSX.Element {
     const history = useHistory();
   function handleClick(): void {
       localStorage.removeItem("authorization");
-      history.push(process.env.PUBLIC_URL+"/menu");
+      history.push("/menu");
   }
 
   return (

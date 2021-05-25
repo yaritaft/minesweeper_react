@@ -14,19 +14,19 @@ function App() {
       <header className="App-header">
         <BrowserRouter basename={process.env.PUBLIC_URL}>
           <Switch>
-            <Route exact path={process.env.PUBLIC_URL }>
+            <Route exact path={"/" }>
               <Login />
             </Route>
-            <Route exact path={process.env.PUBLIC_URL + "/registry"}>
+            <Route exact path={"/registry"}>
               <Registry />
             </Route>
-            <Route exact path={process.env.PUBLIC_URL + "/menu"}>
+            <Route exact path={"/menu"}>
               <GameMenu />
             </Route>
-            <Route exact path={process.env.PUBLIC_URL + "/saved-games"}>
+            <Route exact path={"/saved-games"}>
               <SavedGames />
             </Route>
-            <Route exact path={process.env.PUBLIC_URL + "/minesweeper/:id"}>
+            <Route exact path={"/minesweeper/:id"}>
               <Minesweeper />
             </Route>
           </Switch>
