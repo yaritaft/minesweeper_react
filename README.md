@@ -1,46 +1,100 @@
-# Getting Started with Create React App.
+# Table of Contents
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- [Author](#Author)
+- [Decisions](#Decisions)
+- [Architecture](#Architecture)
+- [Language](#Language)
+- [Database](#Database)
+- [Framework](#Framework)
+- [Deployment](#Deployment)
+- [DataStructure](#DataStructure)
+- [Testing](#Testing)
+- [Standards](#Standards)
+- [Security](#Security)
+- [Improvements](#Improvements)
+- [Exercise](#Exercise)
 
-## Available Scripts
+### Author
+Yari Ivan Taft
 
-In the project directory, you can run:
+https://github.com/yaritaft/
 
-### `npm start`
+### Decisions
+#### Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Account registry
+- Login
+- Create new games
+- Save and Resume games
+- Time tracking
+- Minesweeper game
+- Operators flag, question and click
+#### Technology
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Typescript was selected because of its interoperability with backend and frontend and its safety regarding stacic type checks. As frontend libray React was used, because it is the most popular frontend library and it has a huge community and documentation.
 
-### `npm test`
+#### Deployment
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The deployment was done in Github Pages. It has a hack for supporting browser routing, and that is why it has some delay.
 
-### `npm run build`
+### How to deploy
+Create a .env file by copy and pasting .envdevcopy file content. Use the testing variable.
+```
+npm run deploy
+```
+### Code formatter and Standards
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- ESLint
+- Typescript
+- Prettier
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Lessons learnt
+- Github pages does not support browser router. The solution is to apply the hack from this repo: https://github.com/yaritaft/spa-github-pages . Another good options is to use Netlify or Vercel.
+- Adding homepage in package json modifies the reacts root path. And that addition is stored in an env var called PUBLIC_URL.
+- To deploy in Github pages, first is necessary to build and then use gh pages library. It uploads the content in build folder. It is necessary also to install some dev dependencies. This URL was useful: https://platzi.com/tutoriales/1548-react/4065-guia-para-usar-github-pages-en-tus-proyectos-de-reactjs/
+### Improvements
+Things that can be improved.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Improve styling
 
-### `npm run eject`
+===============================================================================
+### Exercise
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+API test
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+We ask that you complete the following challenge to evaluate your development skills. Please use the programming language and framework discussed during your interview to accomplish the following task.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+PLEASE DO NOT FORK THE REPOSITORY. WE NEED A PUBLIC REPOSITORY FOR THE REVIEW. 
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## The Game
+Develop the classic game of [Minesweeper](https://en.wikipedia.org/wiki/Minesweeper_(video_game))
 
-## Learn More
+## Show your work
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1.  Create a Public repository ( please dont make a pull request, clone the private repository and create a new plublic one on your profile)
+2.  Commit each step of your process so we can follow your thought process.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## What to build
+The following is a list of items (prioritized from most important to least important) we wish to see:
+* Design and implement  a documented RESTful API for the game (think of a mobile app for your API)
+* Implement an API client library for the API designed above. Ideally, in a different language, of your preference, to the one used for the API
+* When a cell with no adjacent mines is revealed, all adjacent squares will be revealed (and repeat)
+* Ability to 'flag' a cell with a question mark or red flag
+* Detect when game is over
+* Persistence
+* Time tracking
+* Ability to start a new game and preserve/resume the old ones
+* Ability to select the game parameters: number of rows, columns, and mines
+* Ability to support multiple users/accounts
+ 
+## Deliverables we expect:
+* URL where the game can be accessed and played (use any platform of your preference: heroku.com, aws.amazon.com, etc)
+* Code in a public Github repo
+* README file with the decisions taken and important notes
+
+## Time Spent
+You need to fully complete the challenge. We suggest not spending more than 3 days total.  Please make commits as often as possible so we can see the time you spent and please do not make one commit.  We will evaluate the code and time spent.
+ 
+What we want to see is how well you handle yourself given the time you spend on the problem, how you think, and how you prioritize when time is sufficient to solve everything.
+
+Please email your solution as soon as you have completed the challenge or the time is up
