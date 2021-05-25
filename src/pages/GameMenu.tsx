@@ -25,9 +25,14 @@ export function GameMenu(): JSX.Element {
     });
     const history = useHistory();
     const handleNewGame = async ()=> {
-        const response = await apiPost<NewGameResponse>("/api/games", gameInfo);
-        if(response?.data?.gameId){
-            history.push(`/minesweeper/${response.data.gameId}`);
+        const {rows, columns } = gameInfo;
+        if(rows * columns >100){
+          alert(`The maximum amount of cells is 100 and you entered ${rows*columns} cells (row x columns).`)
+        }else{
+          const response = await apiPost<NewGameResponse>("/api/games", gameInfo);
+          if(response?.data?.gameId){
+              history.push(`/minesweeper/${response.data.gameId}`);
+          }
         }
     }
 
@@ -41,13 +46,13 @@ export function GameMenu(): JSX.Element {
 
   return (
     <div>
-      <label>Rows
+      <label>Rows<br />
      <input type="number" name="rows" value={gameInfo.rows} onChange={handleChange} />
      </label><br/>
-     <label>Columns
+     <label>Columns<br />
      <input type="number" name="columns" value={gameInfo.columns} onChange={handleChange}></input>
      </label><br/>
-     <label>Amount of mines
+     <label>Amount of mines<br />
      <input type="number" name="amountOfMines" value={gameInfo.amountOfMines} onChange={handleChange}></input>
      </label><br/>
         <button type="button" onClick={handleNewGame}>New Game</button>

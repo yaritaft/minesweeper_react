@@ -45,7 +45,7 @@ export function Login(): JSX.Element {
     <>
       <form>
         <label>
-          Email:
+          Email<br />
           <input
             type="text"
             name="email"
@@ -55,7 +55,7 @@ export function Login(): JSX.Element {
         </label>
         <br />
         <label>
-          Password:
+          Password<br />
           <input
             type="password"
             name="password"

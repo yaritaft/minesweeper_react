@@ -45,7 +45,7 @@ export function Registry(): JSX.Element {
     <>
       <form>
         <label>
-          Name:
+          Name<br/>
           <input
             type="text"
             value={registryInfo.firstName}
@@ -55,7 +55,7 @@ export function Registry(): JSX.Element {
         </label>
         <br />
         <label>
-          LastName:
+          LastName<br/>
           <input
             type="text"
             value={registryInfo.lastName}
@@ -65,7 +65,7 @@ export function Registry(): JSX.Element {
         </label>
         <br />
         <label>
-          Email:
+          Email<br/>
           <input
             type="text"
             value={registryInfo.email}
@@ -75,7 +75,7 @@ export function Registry(): JSX.Element {
         </label>
         <br />
         <label>
-          Password:
+          Password<br/>
           <input
             type="password"
             value={registryInfo.password}
