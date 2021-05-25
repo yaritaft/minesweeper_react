@@ -1,19 +1,4 @@
 # Table of Contents
-
-- [Author](#Author)
-- [Decisions](#Decisions)
-- [Architecture](#Architecture)
-- [Language](#Language)
-- [Database](#Database)
-- [Framework](#Framework)
-- [Deployment](#Deployment)
-- [DataStructure](#DataStructure)
-- [Testing](#Testing)
-- [Standards](#Standards)
-- [Security](#Security)
-- [Improvements](#Improvements)
-- [Exercise](#Exercise)
-
 ### Author
 Yari Ivan Taft
 
