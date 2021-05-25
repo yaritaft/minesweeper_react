@@ -1,5 +1,5 @@
 import M from "minimatch";
-import React, { useEffect, useState } from "react";
+import React, { SetStateAction, useEffect, useState } from "react";
 import {
   Cell,
   CellState,
@@ -13,18 +13,12 @@ import { CellComponent } from "./Cell";
 interface Properties {
   id: string;
   clickAction: CellState;
+  game: Game;
+  setGame: React.Dispatch<SetStateAction<Game | undefined>>;
 }
 
 export function MatrixComponent(props: Properties): JSX.Element {
-  const [game, setGame] = useState<Game>();
-  const getGame = async (): Promise<Game | undefined> => {
-    const response = await apiGet<GameResponse>(`/api/games/${props.id}`);
-    if (response.status === 200) {
-      console.log(response.data);
-      return response.data;
-    }
-  };
-
+  const {game, setGame} = props;
   const generateCell = (game: Game): JSX.Element => (
     <>
       {game?.matrix?.map((row, indexRow) => (
@@ -48,21 +42,14 @@ export function MatrixComponent(props: Properties): JSX.Element {
       ))}
     </>
   );
-  useEffect(() => {
-    const tempGetGame = async () => {
-      const response = await getGame();
-      if (response) {
-        setGame(response);
-      }
-    };
-    tempGetGame();
-  }, [getGame, game]);
 
   return (
     <div>
-      {game?.state}
       <br />
       {game && game.state && game.matrix && generateCell(game)}
+      <br />
+      {`Game State: ${game?.state}`}
+
     </div>
   );
 }

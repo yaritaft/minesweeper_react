@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 interface Properties {
   path: string;
   message?: string;
+  handleClick?: ()=>Promise<void>;
 }
 
 export function ButtonTo(props: Properties): JSX.Element {
@@ -13,6 +14,6 @@ export function ButtonTo(props: Properties): JSX.Element {
   }
 
   return (
-    <button type="button" onClick={handleClick} >{props.message ?? "Go Back"}</button>
+    <button type="button" onClick={props.handleClick ?? handleClick} >{props.message ?? "Go Back"}</button>
   );
 }
