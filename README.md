@@ -1,4 +1,3 @@
-# Table of Contents
 ### Author
 Yari Ivan Taft
 
